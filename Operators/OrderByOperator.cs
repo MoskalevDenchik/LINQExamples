@@ -42,11 +42,7 @@ namespace Operators
 													 orderby employee.Experience
 													 select employee;
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.FirstName} - {item.Experience}");
-			}
-
+			extGroups.Show(item => $"{item.FirstName} - {item.Experience}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -60,10 +56,7 @@ namespace Operators
 													 orderby employee.Experience descending
 													 select employee;
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.FirstName} - {item.Experience}");
-			}
+			extGroups.Show(item => $"{item.FirstName} - {item.Experience}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -79,11 +72,10 @@ namespace Operators
 													 orderby employee.Experience, employee.DepartmentName
 													 select employee;
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.FirstName} - {item.Experience} - {item.DepartmentName}");
-			}
+			extGroups.Show(item => $"{item.FirstName} - {item.Experience} - {item.DepartmentName}");
 		}
+
+		//----------------------------------------------------------------------------------------------------------------------------//
 
 		[TestMethod]
 		public void OrderBy_Example_4() // Problem with ordering
@@ -92,10 +84,7 @@ namespace Operators
 				.OrderBy(employee => employee.DepartmentName)
 				.OrderBy(employee => employee.Experience); // <----
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.FirstName} - {item.Experience}  - {item.DepartmentName}");
-			}
+			extGroups.Show(item => $"{item.FirstName} - {item.Experience} - {item.DepartmentName}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -106,10 +95,7 @@ namespace Operators
 			IOrderedEnumerable<Employee> extGroups = _employees
 				.OrderBy(employee => employee, new EmployeeComparer());
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.FirstName} - {item.LastName}");
-			}
+			extGroups.Show(item => $"{item.FirstName} - {item.Experience} - {item.DepartmentName}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//

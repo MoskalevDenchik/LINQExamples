@@ -1,10 +1,11 @@
 ﻿#region Using
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Entities;
+using System.Collections.Generic;
+
 using Helpers;
+using Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
@@ -44,12 +45,7 @@ namespace Operators
 							 where employee.Experience > 2
 							 select employee;
 
-
-			foreach (Employee item in exprResult)
-			{
-				Console.WriteLine($" {item.FirstName} - {item.Experience}");
-			}
-
+			exprResult.Show(item => $" {item.FirstName} - {item.Experience}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -62,11 +58,7 @@ namespace Operators
 			IEnumerable<string> extResult = from employee in _employees
 											select employee.FirstName;
 
-			foreach (string item in exprResult)
-			{
-				Console.WriteLine(item);
-			}
-
+			exprResult.Show(item => item);
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -90,10 +82,7 @@ namespace Operators
 							 };
 
 
-			foreach (CustomEmployee item in exprResult)
-			{
-				Console.WriteLine($"{item.Name} - {item.Department} - {item.Experience}");
-			}
+			exprResult.Show(item => $"{item.Name} - {item.Department} - {item.Experience}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -116,11 +105,7 @@ namespace Operators
 								 employee.Experience
 							 };
 
-
-			foreach (var item in exprResult)
-			{
-				Console.WriteLine($"{item.Name} - {item.Department} - {item.Experience}");
-			}
+			exprResult.Show(item => $"{item.Name} - {item.Department} - {item.Experience}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
@@ -136,11 +121,51 @@ namespace Operators
 				Index = index
 			});
 
+			extResult.Show(item => $"{item.Name} - {item.Department} - {item.Experience} - {item.Index}");
+		}
 
-			foreach (var item in extResult)
+		//----------------------------------------------------------------------------------------------------------------------------//
+
+		[TestMethod]
+		public void SelectMany_Example_6()
+		{
+			IEnumerable<List<Phone>> extResult = _employees.Select(employee => employee.Phones);
+
+			IEnumerable<Phone> extResultMany = _employees.SelectMany(employee => employee.Phones);
+
+			foreach (List<Phone> list in extResult)
 			{
-				Console.WriteLine($"{item.Name} - {item.Department} - {item.Experience} - {item.Index}");
+				foreach (Phone item in list)
+				{
+					Console.WriteLine($"{item.Number} - {item.Type}");
+				}
 			}
+
+			Console.WriteLine(new string('-', 50));
+
+			foreach (Phone item in extResultMany)
+			{
+				Console.WriteLine($"{item.Number} - {item.Type}");
+			}
+		}
+
+		//----------------------------------------------------------------------------------------------------------------------------//
+
+		[TestMethod]
+		public void SelectMany_Example_7()
+		{
+			var collectionA = new[] { 1, 2, 3, 4, 5 };
+			var collectionB = new[] { 1, 2, 3, 4, 5 };
+
+			var result = from a in collectionA
+						 from b in collectionB
+						 select new
+						 {
+							 a,
+							 b
+						 };
+
+			result.Show(item => $"{item.a} - {item.b}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//

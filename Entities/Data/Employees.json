@@ -1,9 +1,10 @@
 [
-  { "FirstName":"Den", "LastName":"Malkin", "DepartmentName":"IT", "Experience":4, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Piter", "LastName":"Volin", "DepartmentName":"HR", "Experience":3, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Nikoly", "LastName":"Soliv", "DepartmentName":"HR", "Experience":6, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Lexa", "LastName":"Fixov",  "DepartmentName":"IT", "Experience":1, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Vera", "LastName":"Reder",  "DepartmentName":"IT", "Experience":2, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Sony", "LastName":"Gers","DepartmentName":"HR", "Experience":2, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] },
-  { "FirstName":"Tany", "LastName":"Lenis",  "DepartmentName":"IT", "Experience":1, "Phones":[ {"Number":"375-29-475-34-23","Type":0}, {"Number":"375-29-475-34-32","Type":1} ] }
+  { "FirstName":"Den", "LastName":"Malkin", "DepartmentName":"IT", "Experience":4, "Phones":[ {"Number":"375-29-475-34-01","Type":0}, {"Number":"375-29-475-34-02","Type":1} ] },
+  { "FirstName":"Piter", "LastName":"Volin", "DepartmentName":"HR", "Experience":3, "Phones":[ {"Number":"375-29-475-34-03","Type":0}, {"Number":"375-29-475-34-04","Type":1} ] },
+  { "FirstName":"Nikoly", "LastName":"Soliv", "DepartmentName":"HR", "Experience":6, "Phones":[ {"Number":"375-29-475-34-05","Type":0}, {"Number":"375-29-475-34-06","Type":1} ] },
+  { "FirstName":"Lexa", "LastName":"Fixov",  "DepartmentName":"IT", "Experience":1, "Phones":[ {"Number":"375-29-475-34-07","Type":0}, {"Number":"375-29-475-34-08","Type":1} ] },
+  { "FirstName":"Vera", "LastName":"Reder",  "DepartmentName":"IT", "Experience":2, "Phones":[ {"Number":"375-29-475-34-09","Type":0}, {"Number":"375-29-475-34-10","Type":1} ] },
+  { "FirstName":"Vera", "LastName":"Reder",  "DepartmentName":"IT", "Experience":5, "Phones":[ {"Number":"375-29-475-34-11","Type":1}, {"Number":"375-29-475-34-12","Type":1} ] },
+  { "FirstName":"Sony", "LastName":"Gers","DepartmentName":"HR", "Experience":2, "Phones":[ {"Number":"375-29-475-34-13","Type":0}, {"Number":"375-29-475-34-14","Type":1} ] },
+  { "FirstName":"Tany", "LastName":"Lenis",  "DepartmentName":"IT", "Experience":1, "Phones":[ {"Number":"375-29-475-34-15","Type":0}, {"Number":"375-29-475-34-16","Type":1} ] }
 ]

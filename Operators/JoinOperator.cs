@@ -35,9 +35,10 @@ namespace Operators
 
 		#endregion
 
-		// Standard join (inner)
+		//----------------------------------------------------------------------------------------------------------------------------//
+
 		[TestMethod]
-		public void JoinMethod()
+		public void Join_Example_1() // Standard join (inner)
 		{
 			var extGroups = _employees.Join(
 				_departments, // inner collection or right collection
@@ -60,18 +61,36 @@ namespace Operators
 								Department = department.Name
 							};
 
-			foreach (var item in extGroups)
-			{
-				Console.WriteLine($"{item.Name} - {item.Experience} - {item.Department}");
-			}
-
-			Console.WriteLine(new string('-', 50));
-
-			foreach (var item in expGroups)
-			{
-				Console.WriteLine($"{item.Name} - {item.Experience} - {item.Department}");
-
-			}
+			extGroups.ShowAndCompareWith(expGroups, item => $"{item.Name} - {item.Experience} - {item.Department}");
 		}
+
+		//----------------------------------------------------------------------------------------------------------------------------//
+
+		[TestMethod]
+		public void GroupJoin_Example_2()
+		{
+			var expGroups = from department in _departments
+							join employee in _employees
+							on department.Name equals employee.DepartmentName into grouping
+							select new
+							{
+								Department = department.Name,
+								Employees = grouping
+							};
+
+			var extGroups = _departments.GroupJoin(
+				_employees, // inner collection or right collection
+				department => department.Name, // outer key or left key
+				employee => employee.DepartmentName, // inner key or right key
+				(department, employees) => new // result selector
+				{
+					Department = department.Name,
+					Employees = employees
+				});
+
+			expGroups.ShowAndCompareWith(extGroups, item => $"{item.Department} - {item.Employees.Count()}");
+		}
+
+		//----------------------------------------------------------------------------------------------------------------------------//
 	}
 }

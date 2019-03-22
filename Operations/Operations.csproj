@@ -51,7 +51,12 @@
   <ItemGroup>
     <Compile Include="CastAndOfTypeOperations.cs" />
     <Compile Include="ConcatOperations.cs" />
+    <Compile Include="ConvertingOperations.cs" />
+    <Compile Include="DistinctUnionExceptIntersectOperations.cs" />
+    <Compile Include="ExtractElementOperations.cs" />
+    <Compile Include="PredicateOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeRepeatEmptyOperations.cs" />
     <Compile Include="TakeAndSkipOperations.cs" />
   </ItemGroup>
   <ItemGroup>

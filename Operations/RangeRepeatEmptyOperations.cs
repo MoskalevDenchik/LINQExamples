@@ -1,19 +1,18 @@
 ﻿#region Using
 
-using System;
 using System.Linq;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Helpers;
 using Entities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
 
-namespace Operators
+namespace Operations
 {
 	[TestClass]
-	public class WhereOperator
+	public class RangeRepeatEmptyOperations
 	{
 		#region Private fileds
 
@@ -34,25 +33,33 @@ namespace Operators
 		//----------------------------------------------------------------------------------------------------------------------------//
 
 		[TestMethod]
-		public void Where_Example_1() // Simple where
+		public void Range_Example_1()
 		{
-			IEnumerable<Employee> extResult = _employees.Where(employee => employee.Experience > 3);
+			IEnumerable<int> collection = Enumerable.Range(1, 20);
 
-			IEnumerable<Employee> exprResult = from employee in _employees
-											   where employee.Experience > 3
-											   select employee;
-
-			extResult.Show(item => $"{item.FirstName} - {item.Experience}");
+			collection.Show(item => item.ToString());
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
 
 		[TestMethod]
-		public void Where_Example_2() // With index
+		public void Repeat_Example_2()
 		{
-			var extResult = _employees.Where((employee, index) => index > 2 && employee.Experience > 1);
+			int index = 0;
 
-			extResult.Show(item => $"{item.FirstName} - {item.Experience}");
+			var collection = Enumerable.Repeat(new { Name = "Alex", Age = ++index }, 20);
+
+			collection.Show(item => $"{item.Name} - {item.Age}");
+		}
+
+		//----------------------------------------------------------------------------------------------------------------------------//
+
+		[TestMethod]
+		public void Empty_Example_3()
+		{
+			var collection = Enumerable.Empty<int>();
+
+			collection.Show(item => $"{item}");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------------//
